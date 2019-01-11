@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { Image, Container } from './styles'
+
 
 class ToDoContainer extends Component {
   constructor(props) {
@@ -28,11 +30,11 @@ class ToDoContainer extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         Todo: <input type = 'text' value = {this.state.value}
         onChange = {this.handleChange} />
         <button onClick={ () => this.handleClick()}>Add</button><p>{this.state.list}</p>
-      </div>
+      </Container>
     )
   }
 }

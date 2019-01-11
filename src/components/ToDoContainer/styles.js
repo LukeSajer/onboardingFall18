@@ -9,9 +9,13 @@ export const Text = styled(Flex)`
 `;
 
 export const Container = styled(Flex)`
-  background-color: ${({ theme }) => theme.colors.devLogo};
-  height: 15em;
+  background-color: orchid;
+  height: 100%;
   width: 100%;
   align-items: center;
   justify-content: center;
 `;
+
+export const Image = styled.img`
+
+`

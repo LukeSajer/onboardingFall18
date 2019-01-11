@@ -1,4 +1,5 @@
 import React from "react";
+import { Image, Container } from './styles'
 
 class Search extends React.Component{
 
@@ -27,9 +28,9 @@ class Search extends React.Component{
     console.log(this.state.list) 
     }
 
-    handleDelete = (list) => {
-        const tempList = this.state.list;
-        tempList.splice(tempList.indexOf(list),1);
+    handleDelete = (parameterlist) => {
+        const tempList = this.state.parameterlist;
+        tempList.splice(tempList.indexOf(parameterlist),1);
         this.setState({list: tempList});
     }
 
@@ -43,19 +44,20 @@ class Search extends React.Component{
         const filteredList = this.state.list.filter(this.runningSearchCompare)
         const listItems = filteredList.map((item) => 
             <li>{ item } <button value= {this.state.value} onClick={() => this.handleDelete(item)}>Delete</button></li>);
+        
         let reception;
 
         if (this.state.list.length === 0) {reception = <p>hey what's up hello</p>}
         else{reception = <p><br/>Search: <br/><br/><input type="text" value={this.state.search} onChange={this.handleSearchChange}/> </p>}
-
         
         return (
-        <div>
+        <Container>
             Task: <input type="text" value={this.state.value} onChange={this.handleChange} />
             <button value = {this.state.value} onClick={this.handleClick}>Add</button>
             <ul>{listItems}</ul>
             {reception}
-        </div>
+            
+        </Container>
         )
     }
 }
